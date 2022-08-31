@@ -1,0 +1,1 @@
+kubectl get pods -A --no-headers | grep -E 'Evict|Err|Crash|Match|Imag|Pen|Creating|Completed|Termi' | awk '{system("kubectl -n " $1 " delete pod " $2 "  --force --grace-period=0")}'
